@@ -103,9 +103,6 @@
       "vault_corrupted": "The encrypted vault is damaged or has an unsupported format.",
       "vault_rotation_failed": "The vault passphrase could not be rotated."
     },
-    "menu": {
-      "init": "Choose an action"
-    },
     "step": {
       "init": {
         "menu_options": {

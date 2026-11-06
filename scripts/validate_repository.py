@@ -6,7 +6,16 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", ".audit_upstream", ".audit_venv", "__pycache__"}
+SKIP = {
+    ".git",
+    ".audit_upstream",
+    ".audit_venv",
+    ".ci_venv",
+    ".venv",
+    "__pycache__",
+    "venv",
+}
+SKIP_FILES = {".coverage", "coverage.xml"}
 PATTERNS = (
     re.compile(r"AIza[0-9A-Za-z_-]{20,}"),
     re.compile(r"ya29\.[0-9A-Za-z_-]{16,}"),
@@ -19,7 +28,11 @@ FORBIDDEN_RUNTIME = ("tile.openstreetmap.org", "google.com/maps", "analytics.goo
 
 def files():
     for path in ROOT.rglob("*"):
-        if path.is_file() and not any(part in SKIP for part in path.parts):
+        if (
+            path.is_file()
+            and path.name not in SKIP_FILES
+            and not any(part in SKIP for part in path.parts)
+        ):
             yield path
 
 

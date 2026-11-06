@@ -8,6 +8,9 @@ coverage.xml
 htmlcov/
 .audit_upstream/
 .audit_venv/
+.ci_venv/
+.venv/
+venv/
 .remote_audit/
 .test_tmp*/
 test_tmp*/

@@ -15,7 +15,18 @@ def test_repository_contains_no_token_or_private_key_patterns() -> None:
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix not in SCANNED_SUFFIXES:
             continue
-        if any(part in {".audit_upstream", ".audit_venv", ".git"} for part in path.parts):
+        if any(
+            part
+            in {
+                ".audit_upstream",
+                ".audit_venv",
+                ".ci_venv",
+                ".git",
+                ".venv",
+                "venv",
+            }
+            for part in path.parts
+        ):
             continue
         text = path.read_text(encoding="utf-8")
         if any(pattern.search(text) for pattern in SECRET_PATTERNS):

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 from uuid import UUID
 
 from .const import DOMAIN, PLATFORMS
@@ -29,11 +29,6 @@ def vault_path(hass: HomeAssistant, vault_id: str) -> Path:
     if normalized != vault_id:
         raise ValueError("vault_id_invalid")
     return Path(hass.config.path(".storage", f"{DOMAIN}_{normalized}.vault"))
-
-
-async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
-    hass.data.setdefault(DOMAIN, {"vaults": {}})
-    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

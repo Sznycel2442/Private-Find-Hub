@@ -95,7 +95,6 @@
       "vault_corrupted": "Zaszyfrowany sejf jest uszkodzony lub ma nieobsługiwany format.",
       "vault_rotation_failed": "Nie udało się zmienić hasła sejfu."
     },
-    "menu": {"init": "Wybierz działanie"},
     "step": {
       "init": {
         "menu_options": {
