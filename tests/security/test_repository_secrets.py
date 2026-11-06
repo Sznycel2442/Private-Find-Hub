@@ -22,7 +22,11 @@ def test_repository_contains_no_token_or_private_key_patterns() -> None:
                 ".audit_venv",
                 ".ci_venv",
                 ".git",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
                 ".venv",
+                "htmlcov",
                 "venv",
             }
             for part in path.parts

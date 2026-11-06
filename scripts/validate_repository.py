@@ -13,6 +13,10 @@ SKIP = {
     ".ci_venv",
     ".venv",
     "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "htmlcov",
     "venv",
 }
 SKIP_FILES = {".coverage", "coverage.xml"}
