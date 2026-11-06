@@ -1,0 +1,15 @@
+{
+  "domain": "private_find_hub",
+  "name": "Private Find Hub",
+  "after_dependencies": ["recorder"],
+  "codeowners": ["@Sznycel2442"],
+  "config_flow": true,
+  "documentation": "https://github.com/Sznycel2442/Private-Find-Hub",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Sznycel2442/Private-Find-Hub/issues",
+  "requirements": ["argon2-cffi==25.1.0"],
+  "single_config_entry": true,
+  "version": "0.1.0-alpha.1"
+}
+

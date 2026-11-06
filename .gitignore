@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.audit_upstream/
+.audit_venv/
+.remote_audit/
+.test_tmp*/
+test_tmp*/
+*.vault
+secrets.json
+private_find_hub_secrets*
+

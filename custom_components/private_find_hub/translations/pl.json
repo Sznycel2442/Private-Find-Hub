@@ -1,0 +1,142 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Private Find Hub jest już skonfigurowany.",
+      "reauth_successful": "Sejf został odblokowany."
+    },
+    "error": {
+      "invalid_passphrase": "Hasło sejfu jest nieprawidłowe.",
+      "passphrase_too_short": "Użyj hasła składającego się z co najmniej 12 znaków.",
+      "recorder_ack_required": "Przed kontynuowaniem potwierdź wymaganie prywatności Recorder.",
+      "select_at_least_one": "Wybierz co najmniej jeden tag syntetyczny.",
+      "vault_corrupted": "Zaszyfrowany sejf jest uszkodzony lub ma nieobsługiwany format.",
+      "vault_create_failed": "Nie udało się utworzyć zaszyfrowanego sejfu."
+    },
+    "step": {
+      "privacy": {
+        "data": {
+          "recorder_acknowledged": "Skonfigurowano wykluczenia Recorder i rozumiem, że weryfikacja może być niedostępna"
+        },
+        "description": "Tryb STRICT blokuje współrzędne do czasu potwierdzenia ochrony Recorder. Dodaj i sprawdź tę konfigurację, a następnie uruchom ponownie Home Assistant:\n\n```yaml\n{recorder_config}\n```\n\nZmiana nazw encji może ominąć globy. Integracja sprawdza zarejestrowane identyfikatory encji przy każdym odświeżeniu.",
+        "title": "Bramka prywatności"
+      },
+      "reauth_confirm": {
+        "data": {
+          "passphrase": "Hasło sejfu"
+        },
+        "description": "Wprowadź wyłącznie lokalne hasło sejfu Private Find Hub. Nie podawaj hasła Google, tokenu, cookie ani klucza.",
+        "title": "Odblokowanie sejfu"
+      },
+      "tags": {
+        "data": {
+          "selected_tags": "Tagi syntetyczne"
+        },
+        "description": "Adapter Google jest zablokowany przez audyt wykonalności. Urządzenia są jednoznacznie oznaczone jako syntetyczne i nie generują ruchu sieciowego.",
+        "title": "Wybór urządzeń mock"
+      },
+      "user": {
+        "data": {
+          "account_label": "Nazwa lokalnego profilu",
+          "passphrase": "Nowe hasło sejfu"
+        },
+        "data_description": {
+          "account_label": "Wyłącznie lokalna etykieta; nie wpisuj adresu e-mail.",
+          "passphrase": "Nie jest zapisywane. Jest wymagane po każdym restarcie Home Assistant."
+        },
+        "description": "Ta wersja alpha jest bezpiecznym prototypem mock. Nie łączy się z Google i nie może być opisywana jako działająca z Find Hub. Utwórz lokalny sejf STRICT, aby bezpiecznie ocenić integrację.",
+        "title": "Private Find Hub"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "accuracy": {"name": "Dokładność"},
+      "connection_status": {
+        "name": "Stan połączenia",
+        "state": {
+          "authentication_required": "Wymagane uwierzytelnienie",
+          "connected": "Połączono",
+          "locked": "Zablokowano",
+          "mock": "Mock",
+          "rate_limited": "Ograniczono częstotliwość",
+          "unavailable": "Niedostępne"
+        }
+      },
+      "error_count": {"name": "Liczba błędów"},
+      "last_seen": {"name": "Ostatnie wykrycie"},
+      "location_age": {"name": "Wiek lokalizacji"},
+      "location_quality": {
+        "name": "Jakość lokalizacji",
+        "state": {
+          "aging": "Starzejąca się",
+          "fresh": "Świeża",
+          "stale": "Nieaktualna",
+          "unknown": "Nieznana"
+        }
+      },
+      "privacy_gate": {
+        "name": "Bramka prywatności",
+        "state": {
+          "closed_no_entities": "Zamknięta: encje niezarejestrowane",
+          "closed_recorder_included": "Zamknięta: Recorder obejmuje encje",
+          "closed_unverified": "Zamknięta: niezweryfikowana",
+          "open_acknowledged": "Otwarta: zaakceptowano",
+          "open_verified": "Otwarta: zweryfikowano"
+        }
+      }
+    }
+  },
+  "options": {
+    "error": {
+      "aging_before_fresh": "Próg aging musi być większy lub równy progowi fresh.",
+      "invalid_passphrase": "Hasło sejfu jest nieprawidłowe.",
+      "passphrase_too_short": "Użyj hasła składającego się z co najmniej 12 znaków.",
+      "select_at_least_one": "Wybierz co najmniej jeden tag syntetyczny.",
+      "vault_corrupted": "Zaszyfrowany sejf jest uszkodzony lub ma nieobsługiwany format.",
+      "vault_rotation_failed": "Nie udało się zmienić hasła sejfu."
+    },
+    "menu": {"init": "Wybierz działanie"},
+    "step": {
+      "init": {
+        "menu_options": {
+          "lock": "Zablokuj sejf",
+          "privacy": "Prywatność i Recorder",
+          "rotate": "Zmień hasło sejfu",
+          "settings": "Tagi i odpytywanie",
+          "unlock": "Odblokuj sejf"
+        },
+        "title": "Opcje Private Find Hub"
+      },
+      "lock": {
+        "data": {"confirm": "Zablokuj teraz"},
+        "description": "Zablokowanie usuwa odszyfrowany materiał kluczowy ze stanu integracji i zatrzymuje aktualizacje do czasu ponownego odblokowania.",
+        "title": "Blokada sejfu"
+      },
+      "privacy": {
+        "data": {"recorder_acknowledged": "Skonfigurowano wykluczenia Recorder i akceptuję wynik nieweryfikowalny, jeśli API jest niedostępne"},
+        "description": "Wymagane wykluczenia:\n\n```yaml\n{recorder_config}\n```",
+        "title": "Bramka prywatności"
+      },
+      "rotate": {
+        "data": {"new_passphrase": "Nowe hasło sejfu", "old_passphrase": "Obecne hasło sejfu"},
+        "description": "Rotacja jest atomowa. Po udanej zmianie sejf zostanie zablokowany.",
+        "title": "Zmiana hasła"
+      },
+      "settings": {
+        "data": {
+          "aging_minutes": "Próg aging",
+          "fresh_minutes": "Próg fresh",
+          "max_accuracy_m": "Maksymalny publikowany promień dokładności",
+          "scan_interval_minutes": "Interwał odpytywania",
+          "selected_tags": "Tagi syntetyczne"
+        },
+        "title": "Tagi i odpytywanie"
+      },
+      "unlock": {
+        "data": {"passphrase": "Hasło sejfu"},
+        "description": "Hasło pozostaje w pamięci procesu wyłącznie na czas odblokowania i nigdy nie jest zapisywane.",
+        "title": "Odblokowanie sejfu"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Private Find Hub is already configured.",
+      "reauth_successful": "Vault unlocked successfully."
+    },
+    "error": {
+      "invalid_passphrase": "The vault passphrase is incorrect.",
+      "passphrase_too_short": "Use a passphrase of at least 12 characters.",
+      "recorder_ack_required": "Confirm the Recorder privacy requirement before continuing.",
+      "select_at_least_one": "Select at least one synthetic tag.",
+      "vault_corrupted": "The encrypted vault is damaged or has an unsupported format.",
+      "vault_create_failed": "The encrypted vault could not be created."
+    },
+    "step": {
+      "privacy": {
+        "data": {
+          "recorder_acknowledged": "I configured Recorder exclusions and understand that verification can be unavailable"
+        },
+        "description": "STRICT mode blocks coordinates until Recorder protection is confirmed. Add and verify this configuration, then restart Home Assistant:\n\n```yaml\n{recorder_config}\n```\n\nRenaming entities can bypass globs. The integration rechecks registered entity IDs during every refresh.",
+        "title": "Privacy gate"
+      },
+      "reauth_confirm": {
+        "data": {
+          "passphrase": "Vault passphrase"
+        },
+        "description": "Enter only the local Private Find Hub vault passphrase. Do not enter a Google password, token, cookie, or key.",
+        "title": "Unlock vault"
+      },
+      "tags": {
+        "data": {
+          "selected_tags": "Synthetic tags"
+        },
+        "description": "The Google adapter is blocked by the feasibility audit. These devices are clearly marked synthetic and generate no network traffic.",
+        "title": "Select mock devices"
+      },
+      "user": {
+        "data": {
+          "account_label": "Local profile name",
+          "passphrase": "New vault passphrase"
+        },
+        "data_description": {
+          "account_label": "A local label only; do not enter an email address.",
+          "passphrase": "Not stored. It is required after every Home Assistant restart."
+        },
+        "description": "This alpha is a safe mock prototype. It does not connect to Google and must not be described as working with Find Hub. Create a local STRICT vault to evaluate the integration safely.",
+        "title": "Private Find Hub"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "accuracy": {"name": "Accuracy"},
+      "connection_status": {"name": "Connection status"},
+      "error_count": {"name": "Error count"},
+      "last_seen": {"name": "Last seen"},
+      "location_age": {"name": "Location age"},
+      "location_quality": {"name": "Location quality"},
+      "privacy_gate": {"name": "Privacy gate"}
+    }
+  }
+}
+
